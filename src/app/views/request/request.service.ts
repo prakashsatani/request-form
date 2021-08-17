@@ -5,9 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ProfileService {
-  constructor(private httpService: AppHttpService) {}
+export class RequestService {
+  constructor(private httpService: AppHttpService) { }
   getStaff(): Observable<any> {
     return this.httpService.get('Features/RequestForm/GetStaffList ');
+  }
+  createRequest(params: any, data: any): Observable<any> {
+    return this.httpService.post('Features/RequestForm/AddRequestForm?' + params, data);
   }
 }
